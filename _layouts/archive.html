@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blog Archive - {{ author }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="{{ author }}">
+        <meta name="title" content="Blog Archive - {{ author }}">
+        {% for article in collections.articles %}
+        {% if loop.index == 1 %}
+        <meta name="description" content="Blog Archive - {{ author }}; {{ article.excerpt | striptags }}">
+        {% endif %}
+        {% endfor %}
+        <meta name="robots" content="index,follow">
+        <link rel="canonical" href="{{ canonical }}{{ path.href }}">
+        <link href="/css/theme.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="text-center"><a href="/">{{ author }}</a></h1>
+                </div>
+                <div class="col-xs-12">
+                    <p class="lead text-center">{{ tagline }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8">
+                    {% for  article in collections.articles %}
+                    <h3>{{ article.title  }}</h3>
+                    <p><time>{{ article.date | date('Y-m-d') }}</time></p>
+                    {{ article.excerpt | safe }}
+                    <p><a href="{{ article.path.href }}">Continue Reading</a></p>
+                    {% endfor %}
+                </div>
+                <div class="clearfix visible-xs-block"></div>
+                <div class="col-xs-12 col-sm-4">
+                    <section>
+                        <h4>Recent Posts</h4>
+                        <ul class="list-unstyled">
+                        {% for  article in collections.articles %}
+                        {% if loop.index < 4 %}
+                            <li><a href="{{ article.path.href }}">{{ article.title  }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                            <li><a href="/archive/">Archive</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <footer class="footer">
+                        <ul class="list-inline">
+                            <li>Powered By: </li>
+                            <li><a rel="nofollow" href="http://getbootstrap.com/">Bootstrap</a></li>
+                            <li><a rel="nofollow" href="http://bower.io/">Bower</a></li>
+                            <li><a rel="nofollow" href="http://nodejs.org/">Node.js</a></li>
+                            <li><a rel="nofollow" href="http://github.com/">Github</a></li>
+                            <li><a rel="nofollow" href="http://gruntjs.com/">Grunt</a></li>
+                            <li><a rel="nofollow" href="http://www.metalsmith.io/">Metalsmith</a></li>
+                            <li><a rel="nofollow" href="http://slipsum.com/">Samuel L. Ipsum</a></li>
+                        </ul>
+                        <p>&copy; {{ author }} 2015</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

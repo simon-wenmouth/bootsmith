@@ -1,0 +1,25 @@
+{
+    "name": "bootsmith",
+    "version": "1.0.0",
+    "description": "demonstration static site generated with bootstrap and metalsmith",
+    "authors": [
+        "Simon Wenmouth"
+    ],
+    "license": "MIT",
+    "homepage": "http://simon-wenmouth.github.io/bootsmith/",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:simon-wenmouth/bootsmith.git"
+    },
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "_site",
+        "test",
+        "tests"
+    ],
+    "devDependencies": {
+        "bootstrap": "~3.3.5"
+    }
+}

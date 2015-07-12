@@ -1,0 +1,34 @@
+{
+    "source": "./_posts",
+    "destination": "./_site",
+    "metadata": {
+    },
+    "plugins": {
+        "metalsmith-define": {
+            "author": "Simon Wenmouth",
+            "tagline": "i build things",
+            "canonical": "http://simon-wenmouth.github.io/bootsmith/"
+        },
+        "metalsmith-drafts": {},
+        "metalsmith-markdown": {
+            "smartypants": true,
+            "gfm": true,
+            "tables": true
+        },
+        "metalsmith-permalinks": {
+            "pattern": ":title"
+        },
+        "metalsmith-paths": true,
+        "metalsmith-excerpts": true,
+        "metalsmith-collections": {
+            "articles": {
+                "sortBy": "date",
+                "reverse": true
+            }
+        },
+        "metalsmith-templates": {
+            "engine": "swig",
+            "directory": "_layouts"
+        }
+    }
+}

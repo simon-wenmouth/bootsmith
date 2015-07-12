@@ -1,0 +1,43 @@
+{
+  "name": "bootsmith",
+  "version": "1.0.0",
+  "description": "demonstration static site generated with bootstrap and metalsmith",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-metalsmith": "^1.0.0",
+    "hapi": "^8.8.0",
+    "less-plugin-autoprefix": "^1.4.2",
+    "less-plugin-clean-css": "^1.5.0",
+    "metalsmith": "^1.7.0",
+    "metalsmith-collections": "^0.7.0",
+    "metalsmith-define": "^1.0.0",
+    "metalsmith-drafts": "0.0.1",
+    "metalsmith-excerpts": "^1.0.0",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-paths": "^2.0.0",
+    "metalsmith-permalinks": "^0.4.0",
+    "metalsmith-templates": "^0.7.0",
+    "swig": "^1.4.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Simon Wenmouth",
+  "license": "MIT",
+  "keywords": [
+    "Bootstrap",
+    "Metalsmith",
+    "Grunt",
+    "Bower"
+  ],
+  "homepage": "http://simon-wenmouth.github.io/bootsmith/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:simon-wenmouth/bootsmith.git"
+  }
+}
