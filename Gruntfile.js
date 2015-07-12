@@ -4,13 +4,20 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         clean: [
+            '_release',
             '_site'
         ],
         copy: {
-          bootstrap: {
+          develop: {
             cwd: 'bower_components/bootstrap/fonts/',
             src: '**',
             dest: '_site/fonts/',
+            expand: true
+          },
+          release: {
+            cwd: 'bower_components/bootstrap/fonts/',
+            src: '**',
+            dest: '_release/fonts/',
             expand: true
           }
         },
@@ -73,6 +80,19 @@ module.exports = function(grunt) {
                     }
                 }
             }
+        },
+        relativeRoot: {
+            release: {
+                options: {
+                    root: '_site'
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= relativeRoot.release.options.root %>',
+                    src: ['**/*.css', '**/*.html'],
+                    dest: '_release/'
+                }]
+            }
         }
     });
 
@@ -80,19 +100,21 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-metalsmith');
+    grunt.loadNpmTasks('grunt-relative-root');
 
     grunt.registerTask('default', [
         'clean',
         'metalsmith:site',
         'less:develop',
-        'copy:bootstrap',
+        'copy:develop',
     ]);
 
     grunt.registerTask('release', [
         'clean',
         'metalsmith:site',
         'less:release',
-        'copy:bootstrap'
+        'copy:release',
+        'relativeRoot:release',
     ]);
 
 };
